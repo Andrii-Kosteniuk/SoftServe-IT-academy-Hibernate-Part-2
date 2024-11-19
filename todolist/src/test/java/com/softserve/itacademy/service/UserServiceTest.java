@@ -1,9 +1,10 @@
 package com.softserve.itacademy.service;
 
+import com.softserve.itacademy.exception.UserNotFoundException;
 import com.softserve.itacademy.model.User;
+import com.softserve.itacademy.model.UserRole;
 import com.softserve.itacademy.repository.UserRepository;
 import com.softserve.itacademy.service.impl.UserServiceImpl;
-import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -38,6 +39,7 @@ public class UserServiceTest {
         expected.setLastName("Green");
         expected.setEmail("green@mail.com");
         expected.setPassword("Qwerty1!");
+        expected.setRole(UserRole.USER);
     }
 
     @AfterEach
@@ -75,8 +77,8 @@ public class UserServiceTest {
 
     @Test
     void testExceptionReadById() {
-        Exception exception = assertThrows(EntityNotFoundException.class, ()
-                -> userService.readById(-1L)
+        Exception exception = assertThrows(UserNotFoundException.class, ()
+                -> userService.readById(- 1L)
         );
 
         assertEquals("User with id -1 not found", exception.getMessage());
@@ -86,12 +88,14 @@ public class UserServiceTest {
 
     @Test
     void testDelete() {
-        when(userRepository.findById(anyLong())).thenReturn(Optional.of(new User()));
-        doNothing().when(userRepository).delete(any(User.class));
-        userService.delete(1L);
+        long userId = 1L;
+        when(userRepository.findById(anyLong())).thenReturn(Optional.of(expected));
+        doNothing().when(userRepository).deleteById(userId);
+
+        userService.delete(userId);
 
         verify(userRepository, times(1)).findById(anyLong());
-        verify(userRepository, times(1)).delete(any(User.class));
+        verify(userRepository, times(1)).deleteById(userId);
     }
 
     @Test
@@ -106,9 +110,9 @@ public class UserServiceTest {
     }
 
 
-//    @Test
-//    void testExceptionLoadUserByUsername() {
-//        assertThat(userService.findByEmail(anyString())).isEmpty();
-//        verify(userRepository, times(1)).findByEmail(anyString());
-//    }
+    @Test
+    void testExceptionLoadUserByUsername() {
+        assertThat(userService.findByEmail(anyString())).isEmpty();
+        verify(userRepository, times(1)).findByEmail(anyString());
+    }
 }

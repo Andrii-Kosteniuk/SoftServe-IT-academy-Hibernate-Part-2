@@ -23,46 +23,46 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 })
 public class UserRepositoryTest {
 
-//    private final UserRepository userRepository;
-//
-//    @Autowired
-//    public UserRepositoryTest(UserRepository userRepository) {
-//        this.userRepository = userRepository;
-//    }
-//
-//    @Test
-//    void testGetByEmail_1() {
-//        User user1 = new User();
-//        user1.setFirstName("Mike");
-//        user1.setLastName("Green");
-//        user1.setEmail("mike@mail.com");
-//        user1.setPassword("Qwerty1!");
-//        userRepository.save(user1);
-//
-//        User user2 = new User();
-//        user2.setFirstName("Nick");
-//        user2.setLastName("Brown");
-//        user2.setEmail("nick@mail.com");
-//        user2.setPassword("Qwerty2!");
-//
-//        User expected = userRepository.save(user2);
-//        User actual = userRepository.findByEmail("nick@mail.com").orElseThrow();
-//
-//        assertEquals(expected, actual);
-//    }
-//
-//    @Test
-//    void testGetByEmail_2() {
-//        User user = new User();
-//        user.setFirstName("Mike");
-//        user.setLastName("Green");
-//        user.setEmail("mike@mail.com");
-//        user.setPassword("Qwerty3!");
-//        userRepository.save(user);
-//
-//        Optional<User> actual = userRepository.findByEmail("nick@mail.com");
-//
-//        assertThat(actual).isEmpty();
-//    }
+    private final UserRepository userRepository;
+
+    @Autowired
+    public UserRepositoryTest(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Test
+    void testGetByEmail_1() {
+        User user1 = new User();
+        user1.setFirstName("Mike");
+        user1.setLastName("Green");
+        user1.setEmail("mike@mail.com");
+        user1.setPassword("Qwerty1!");
+        userRepository.save(user1);
+
+        User user2 = new User();
+        user2.setFirstName("Nick");
+        user2.setLastName("Brown");
+        user2.setEmail("nick@mail.com");
+        user2.setPassword("Qwerty2!");
+
+        User expected = userRepository.save(user2);
+        User actual = userRepository.findByEmail("nick@mail.com").orElseThrow();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testGetByEmail_2() {
+        User user = new User();
+        user.setFirstName("Mike");
+        user.setLastName("Green");
+        user.setEmail("mike@mail.com");
+        user.setPassword("Qwerty3!");
+        userRepository.save(user);
+
+        Optional<User> actual = userRepository.findByEmail("nick@mail.com");
+
+        assertThat(actual).isEmpty();
+    }
 }
 
