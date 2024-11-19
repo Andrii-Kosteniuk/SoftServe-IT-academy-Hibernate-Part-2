@@ -31,16 +31,16 @@ public class ToDoServiceImpl implements ToDoService {
     @Override
     public ToDo create(ToDo todo) {
         Objects.requireNonNull(todo, "Todo can not be a null");
-        DataVerification.checkToDoValidation(todo);
+        DataVerification.checkWhetherToDoIsValidOrNot(todo);
 
         if (repository.existsById(todo.getId())) {
             String errorMessage = "Todo with ID " + todo.getId() + " already exists in the database.";
-            logger.log(Level.WARNING, errorMessage);
+            logger.info(errorMessage);
             throw new ToDoAlreadyExistsException(errorMessage);
         }
 
         ToDo savedTodo = repository.save(todo);
-        logger.log(Level.INFO, "Todo '{}' was saved to the database", savedTodo.getTitle());
+        logger.info("Todo " + savedTodo.getTitle() + " was saved to the database");
         return savedTodo;
     }
 
@@ -53,12 +53,12 @@ public class ToDoServiceImpl implements ToDoService {
     @Override
     public ToDo update(ToDo todo) {
         Objects.requireNonNull(todo, "Todo cannot be null");
-        DataVerification.checkToDoValidation(todo);
+        DataVerification.checkWhetherToDoIsValidOrNot(todo);
 
         ToDo toDo = readById(todo.getId());
 
         repository.save(toDo);
-        logger.log(Level.INFO, "Todo '{}' was updated successfully", toDo.getTitle());
+        logger.log(Level.INFO, "Todo " + toDo.getTitle() + " was updated successfully");
         return toDo;
     }
 
@@ -66,7 +66,7 @@ public class ToDoServiceImpl implements ToDoService {
     public void delete(long id) {
         readById(id);
         repository.deleteById(id);
-        logger.log(Level.INFO, "Todo with ID '{}' was successfully deleted from the database", id);
+        logger.log(Level.INFO, "Todo with ID " + id + " was successfully deleted from the database");
     }
 
     @Override
