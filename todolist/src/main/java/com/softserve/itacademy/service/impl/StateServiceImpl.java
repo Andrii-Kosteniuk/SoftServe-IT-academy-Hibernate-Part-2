@@ -48,12 +48,13 @@ public class StateServiceImpl implements StateService {
         if(stateRepository.existsById(id)){
             stateRepository.deleteById(id);
         }
-        else throw new EntityExistsException("State with id " + id + " not found!");
+        else throw new EntityNotFoundException("State with id " + id + " not found!");
     }
 
     @Override
     public List<State> getAll() {
-        return stateRepository.getAllStatesSorted();
+        //return stateRepository.getAllStatesSorted();
+        return stateRepository.findAll();
     }
 
     @Override

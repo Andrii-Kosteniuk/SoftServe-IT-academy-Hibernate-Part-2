@@ -17,9 +17,9 @@ public interface StateRepository extends JpaRepository<State, Long> {
     // Method for retrieving a State by name
     // Method for retrieving all State objects sorted by name
 
-    @Query(value = "SELECT id, name, tasks FROM State WHERE State.name=:stateName")
+    @Query(value = "SELECT id, name FROM States WHERE name = :stateName", nativeQuery=true)
     State getByName(@Param("stateName") String stateName);
 
-    @Query(value = "SELECT id, name, tasks FROM State ORDER BY name")
+    @Query(value = "SELECT * FROM States ORDER BY name", nativeQuery=true)
     List<State> getAllStatesSorted();
 }
