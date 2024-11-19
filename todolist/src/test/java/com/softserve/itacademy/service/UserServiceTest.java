@@ -15,7 +15,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 import java.util.Optional;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -85,7 +84,6 @@ public class UserServiceTest {
         verify(userRepository, times(1)).findById(anyLong());
     }
 
-
     @Test
     void testDelete() {
         long userId = 1L;
@@ -108,7 +106,6 @@ public class UserServiceTest {
         assertEquals(expectedUsers, actual);
         verify(userRepository, times(1)).findAll();
     }
-
 
     @Test
     void testExceptionLoadUserByUsername() {

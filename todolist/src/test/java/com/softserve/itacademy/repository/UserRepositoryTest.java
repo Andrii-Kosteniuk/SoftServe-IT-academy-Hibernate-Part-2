@@ -61,8 +61,8 @@ public class UserRepositoryTest {
         userRepository.save(user);
 
         Optional<User> actual = userRepository.findByEmail("nick@mail.com");
-
         assertThat(actual).isEmpty();
     }
+
 }
 
