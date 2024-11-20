@@ -39,6 +39,12 @@ public class ToDo {
     public ToDo() {
     }
 
+    public ToDo(String title, User owner, LocalDateTime createdAt) {
+        this.title = title;
+        this.owner = owner;
+        this.createdAt = createdAt;
+    }
+
     public long getId() {
         return id;
     }
