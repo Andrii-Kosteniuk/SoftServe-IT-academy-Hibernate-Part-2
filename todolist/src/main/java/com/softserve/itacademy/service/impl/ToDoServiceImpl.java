@@ -5,7 +5,8 @@ import com.softserve.itacademy.exception.ToDoNotFoundException;
 import com.softserve.itacademy.model.ToDo;
 import com.softserve.itacademy.repository.ToDoRepository;
 import com.softserve.itacademy.service.ToDoService;
-import com.softserve.itacademy.utility.DataVerification;
+
+import com.softserve.itacademy.utilty.DataVerification;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

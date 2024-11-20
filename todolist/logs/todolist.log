@@ -1,0 +1,20 @@
+2024-11-20T01:50:45.403+01:00  INFO 2676 --- [todolist] [main] c.s.i.repository.UserRepositoryTest      : Starting UserRepositoryTest using Java 21.0.5 with PID 2676 (started by Dell in C:\OM-103-Andrii-Kosteniuk\jom-hibernate-part-2-m20_s12_team_1_03-main\todolist)
+2024-11-20T01:50:45.406+01:00  INFO 2676 --- [todolist] [main] c.s.i.repository.UserRepositoryTest      : No active profile set, falling back to 1 default profile: "default"
+2024-11-20T01:50:46.417+01:00  INFO 2676 --- [todolist] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-20T01:50:46.646+01:00  INFO 2676 --- [todolist] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 202 ms. Found 4 JPA repository interfaces.
+2024-11-20T01:50:47.611+01:00  INFO 2676 --- [todolist] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-20T01:50:47.844+01:00  INFO 2676 --- [todolist] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-11-20T01:50:47.972+01:00  INFO 2676 --- [todolist] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-20T01:50:48.419+01:00  INFO 2676 --- [todolist] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-20T01:50:48.504+01:00  INFO 2676 --- [todolist] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-20T01:50:49.057+01:00  INFO 2676 --- [todolist] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=SA
+2024-11-20T01:50:49.062+01:00  INFO 2676 --- [todolist] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-20T01:50:51.387+01:00  INFO 2676 --- [todolist] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-20T01:50:51.567+01:00  INFO 2676 --- [todolist] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-20T01:50:52.408+01:00  INFO 2676 --- [todolist] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-11-20T01:50:54.062+01:00  INFO 2676 --- [todolist] [main] c.s.i.repository.UserRepositoryTest      : Started UserRepositoryTest in 9.967 seconds (process running for 20.05)
+2024-11-20T01:50:54.877+01:00  INFO 2676 --- [todolist] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.softserve.itacademy.repository.ToDoRepositoryTest]: ToDoRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-11-20T01:50:54.960+01:00  INFO 2676 --- [todolist] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.softserve.itacademy.ToDoListApplication for test class com.softserve.itacademy.repository.ToDoRepositoryTest
+2024-11-20T01:50:55.290+01:00  INFO 2676 --- [todolist] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-20T01:50:55.296+01:00  INFO 2676 --- [todolist] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-20T01:50:55.305+01:00  INFO 2676 --- [todolist] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

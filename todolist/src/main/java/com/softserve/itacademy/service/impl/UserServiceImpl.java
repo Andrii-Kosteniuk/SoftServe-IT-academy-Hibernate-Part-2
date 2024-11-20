@@ -5,13 +5,13 @@ import com.softserve.itacademy.exception.UserNotFoundException;
 import com.softserve.itacademy.model.User;
 import com.softserve.itacademy.repository.UserRepository;
 import com.softserve.itacademy.service.UserService;
-import com.softserve.itacademy.utility.DataVerification;
+
+import com.softserve.itacademy.utilty.DataVerification;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
