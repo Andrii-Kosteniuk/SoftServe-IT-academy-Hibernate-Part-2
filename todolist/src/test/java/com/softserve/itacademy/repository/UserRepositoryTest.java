@@ -1,7 +1,6 @@
 package com.softserve.itacademy.repository;
 
 import com.softserve.itacademy.model.User;
-import com.softserve.itacademy.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -15,10 +14,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DataJpaTest
 @TestPropertySource(properties = {
         "spring.test.database.replace=NONE",
+        "spring.datasource.driver-class-name=org.h2.Driver",
         "spring.datasource.url=jdbc:h2:mem:test;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH",
         "spring.datasource.username=sa",
         "spring.datasource.password=",
-        "spring.jpa.hibernate.ddl-auto=update",
+        "spring.jpa.hibernate.ddl-auto=create-drop",
         "spring.sql.init.mode=never"
 })
 public class UserRepositoryTest {
