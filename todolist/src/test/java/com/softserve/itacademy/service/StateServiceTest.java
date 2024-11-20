@@ -1,10 +1,8 @@
 package com.softserve.itacademy.service;
 
 import com.softserve.itacademy.model.State;
-import com.softserve.itacademy.model.User;
 import com.softserve.itacademy.repository.StateRepository;
 import com.softserve.itacademy.service.impl.StateServiceImpl;
-import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -37,13 +35,13 @@ public class StateServiceTest {
         expected.setName("My state");
     }
 
-//    @AfterEach
-//    public void tearDown() {
-//        expected = null;
-//    }
+    @AfterEach
+    void clear() {
+        expected = null;
+    }
 
     @Test
-    public void testCorrectCreate(){
+   void testCorrectCreate(){
         when(stateRepository.save(expected)).thenReturn(expected);
         State actual = stateService.create(expected);
 
@@ -52,7 +50,7 @@ public class StateServiceTest {
     }
 
     @Test
-    public void testExceptionCreateNull(){
+    void testExceptionCreateNull(){
         Exception exception = assertThrows(IllegalArgumentException.class, ()
                 -> stateService.create(null)
         );
@@ -62,7 +60,7 @@ public class StateServiceTest {
     }
 
     @Test
-    public void testCorrectReadById(){
+    void testCorrectReadById(){
         when(stateRepository.findById(anyLong())).thenReturn(Optional.of(expected));
         State actual = stateService.readById(anyLong());
 
@@ -78,6 +76,45 @@ public class StateServiceTest {
 
         assertEquals("State with id -1 not found!", exception.getMessage());
         verify(stateRepository, times(1)).findById(anyLong());
+    }
+
+
+    @Test
+    void testUpdate() {
+        when(stateRepository.existsById(expected.getId())).thenReturn(true);
+        when(stateRepository.save(expected)).thenReturn(expected);
+        State state = stateService.update(expected);
+        assertEquals(expected, state);
+        verify(stateRepository, times(1)).existsById(expected.getId());
+        verify(stateRepository, times(1)).save(expected);
+    }
+
+    @Test
+    void testExceptionUpdateNull(){
+        Exception exception = assertThrows(IllegalArgumentException.class, ()
+                -> stateService.update(null)
+        );
+
+        assertEquals("State cannot be null!", exception.getMessage());
+        verify(stateRepository, never()).save(new State());
+    }
+
+    @Test
+     void testDelete(){
+        when(stateRepository.existsById(expected.getId())).thenReturn(true);
+        doNothing().when(stateRepository).deleteById(expected.getId());
+        stateService.delete(expected.getId());
+        verify(stateRepository, times(1)).existsById(expected.getId());
+        verify(stateRepository, times(1)).deleteById(expected.getId());
+    }
+
+
+    @Test
+    void testGetByName() {
+        when(stateRepository.getByName("My state")).thenReturn(expected);
+        State actual = stateService.getByName("My state");
+        assertEquals(expected, actual);
+        verify(stateRepository, times(1)).getByName("My state");
     }
 
     @Test
