@@ -1,4 +1,4 @@
-package com.softserve.itacademy.service.exception.todoExceptions;
+package com.softserve.itacademy.exception;
 
 public class ToDoAlreadyExistsException extends RuntimeException{
     public ToDoAlreadyExistsException(String message) {

@@ -1,8 +1,8 @@
 package com.softserve.itacademy.service;
 
 import com.softserve.itacademy.model.ToDo;
-import com.softserve.itacademy.service.exception.todoExceptions.ToDoAlreadyExistsException;
-import com.softserve.itacademy.service.exception.todoExceptions.ToDoNotFoundException;
+import com.softserve.itacademy.exception.ToDoAlreadyExistsException;
+import com.softserve.itacademy.exception.ToDoNotFoundException;
 
 import java.util.List;
 
