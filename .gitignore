@@ -1,3 +1,7 @@
-.idea
+.idea/
 /logs
-.iml
+# Ignore logs directory
+todolist/logs/
+
+# Ignore Maven target directory
+todolist/target/
