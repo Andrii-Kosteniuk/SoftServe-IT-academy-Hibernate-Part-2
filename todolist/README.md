@@ -219,7 +219,6 @@ services are implemented:
 
 4. **StateService**
     - Methods:
-
 ```
     State create(State state);
 
